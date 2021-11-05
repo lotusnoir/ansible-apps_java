@@ -27,7 +27,8 @@
 # Setup/install tasks.
 - include_tasks: setup-RedHat.yml
   when: ansible_os_family == 'RedHat' or
-        ansible_os_family == 'AlmaLinux'
+        ansible_os_family == 'AlmaLinux' or
+        ansible_os_family == 'Rocky'
 
 - include_tasks: setup-Debian.yml
   when: ansible_os_family == 'Debian'
