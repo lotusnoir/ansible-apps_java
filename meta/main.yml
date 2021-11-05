@@ -2,7 +2,7 @@
 dependencies: []
 
 galaxy_info:
-  role_name: java
+  role_name: lotusnoir.apps_java
   author: geerlingguy
   description: Java for Linux
   company: "Midwestern Mac, LLC"
