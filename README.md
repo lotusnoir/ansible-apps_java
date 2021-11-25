@@ -1,67 +1,36 @@
-# Ansible Role: Java
+# ansible-apps_java
 
-[![CI](https://github.com/geerlingguy/ansible-role-java/workflows/CI/badge.svg?event=push)](https://github.com/geerlingguy/ansible-role-java/actions?query=workflow%3ACI)
+## Description
 
-Installs Java for RedHat/CentOS and Debian/Ubuntu linux servers.
+[![Galaxy Role](https://img.shields.io/badge/galaxy-apps_java-purple?style=flat)](https://galaxy.ansible.com/lotusnoir/apps_java)
+[![Version](https://img.shields.io/github/release/lotusnoir/ansible-apps_java.svg)](https://github.com/lotusnoir/ansible-apps_java/releases/latest)
+![GitHub repo size](https://img.shields.io/github/repo-size/lotusnoir/ansible-apps_java?color=orange&style=flat)
+[![downloads](https://img.shields.io/ansible/role/d/)](https://galaxy.ansible.com/lotusnoir/apps_java)
+![Ansible Quality Score](https://img.shields.io/ansible/quality/)
+[![License](https://img.shields.io/badge/license-Apache--2.0-brightgreen?style=flat)](https://opensource.org/licenses/Apache-2.0)
+
+Deploy java using ansible.
 
 ## Requirements
 
-None.
+none
 
-## Role Variables
+## Role variables
 
-Available variables are listed below, along with default values:
+See [variables](/defaults/main.yml) for more details.
 
-    # The defaults provided by this role are specific to each distribution.
-    java_packages:
-      - java-1.8.0-openjdk
+## Examples
 
-Set the version/development kit of Java to install, along with any other necessary Java packages. Some other options include are included in the distribution-specific files in this role's 'defaults' folder.
+        ---
+        - hosts: apps_java
+          become: true
+          become_method: sudo
+          gather_facts: true
+          roles:
+            - role: ansible-apps_java
 
-    java_home: ""
-
-If set, the role will set the global environment variable `JAVA_HOME` to this value.
-
-## Dependencies
-
-None.
-
-## Example Playbook (using default package)
-
-    - hosts: servers
-      roles:
-        - role: geerlingguy.java
-          become: yes
-
-## Example Playbook (install OpenJDK 8)
-
-For RHEL / CentOS:
-
-    - hosts: server
-      roles:
-        - role: geerlingguy.java
-          when: "ansible_os_family == 'RedHat'"
-          java_packages:
-            - java-1.8.0-openjdk
-
-For Ubuntu < 16.04:
-
-    - hosts: server
-      tasks:
-        - name: installing repo for Java 8 in Ubuntu
-  	      apt_repository: repo='ppa:openjdk-r/ppa'
-    
-    - hosts: server
-      roles:
-        - role: geerlingguy.java
-          when: "ansible_os_family == 'Debian'"
-          java_packages:
-            - openjdk-8-jdk
 
 ## License
 
-MIT / BSD
+This project is licensed under Apache License. See [LICENSE](/LICENSE) for more details.
 
-## Author Information
-
-This role was created in 2014 by [Jeff Geerling](https://www.jeffgeerling.com/), author of [Ansible for DevOps](https://www.ansiblefordevops.com/).

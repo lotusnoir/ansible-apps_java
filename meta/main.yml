@@ -2,44 +2,32 @@
 galaxy_info:
   author: lotusnoir
   role_name: apps_java
-  description: Java for Linux
-  license: "license (BSD, MIT)"
-  min_ansible_version: 2.4
+  description: "Deploy java using ansible."
+  license: "Apache License, Version 2.0"
+  min_ansible_version: 2.8
+
   platforms:
-    - name: Rocky
+    - name: "Ubuntu"
       versions:
-        - 8
-    - name: EL
+        - "focal"
+        - "bionic"
+    - name: "Debian"
       versions:
-        - 7
-        - 8
-    - name: Fedora
+        - "bullseye"
+        - "buster"
+    - name: "RedHat"
       versions:
-        - all
-    - name: Debian
+        - "Maipo"
+    - name: "CentOS"
       versions:
-        - wheezy
-        - jessie
-        - stretch
-        - buster
-        - bullseye
-    - name: Ubuntu
+        - "8"
+        - "7"
+    - name: "Rocky"
       versions:
-        - precise
-        - trusty
-        - xenial
-        - bionic
-        - focal
-    - name: FreeBSD
-      versions:
-        - 10.2
+        - "8"
+
   galaxy_tags:
-    - development
-    - system
-    - web
     - java
     - jdk
-    - openjdk
-    - oracle
 
 dependencies: []
