@@ -1,6 +1,6 @@
 ---
 - name: Ensure man directory exists.
-  file:
+  ansible.builtin.file:
     path: /usr/share/man/man1
     state: directory
     mode: 0755
@@ -10,6 +10,6 @@
     - ansible_distribution_major_version | int >= 18
 
 - name: Ensure Java is installed.
-  apt:
+  ansible.builtin.apt:
     name: "{{ java_packages }}"
     state: present

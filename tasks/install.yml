@@ -8,7 +8,7 @@
   when: ansible_os_family == 'Debian'
 
 - name: Set JAVA_HOME if configured.
-  template:
+  ansible.builtin.template:
     src: java_home.sh.j2
     dest: /etc/profile.d/java_home.sh
     mode: 0644
