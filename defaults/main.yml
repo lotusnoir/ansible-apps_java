@@ -1,3 +1,4 @@
 ---
-java_packages: []
+# uncomment to overide default
+# java_packages: []
 java_home: ""

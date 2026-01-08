@@ -3,3 +3,7 @@
   ansible.builtin.package:
     name: "{{ java_packages }}"
     state: present
+  register: __pkg_result
+  retries: 12
+  delay: 10
+  until: __pkg_result is success

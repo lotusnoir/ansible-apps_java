@@ -9,6 +9,17 @@
   ansible.builtin.include_tasks: setup-Debian.yml
   when: ansible_os_family == 'Debian'
 
+- name: Detect JAVA_HOME from update-alternatives
+  ansible.builtin.command: readlink -f /usr/bin/java
+  register: java_bin
+  changed_when: false
+  when: java_home == ""
+
+- name: Set JAVA_HOME fact
+  ansible.builtin.set_fact:
+    java_home: "{{ java_bin.stdout | regex_replace('/bin/java$', '') }}"
+  when: java_bin.stdout is defined
+
 - name: Set JAVA_HOME if configured.
   ansible.builtin.template:
     src: java_home.sh.j2
